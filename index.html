@@ -190,22 +190,36 @@
   }
 </style>
 
-<section id="contact" class="container">
-  <h2>Contact</h2>
-  <div class="contact-grid">
-    <div class="card">
-      <form id="contact-form">
-        <input type="text" id="name" placeholder="Your name" required />
-        <input type="email" id="email" placeholder="Your email" required />
-        <textarea id="message" rows="5" placeholder="How can I help?" required></textarea>
-        <button type="submit">Send message</button>
-        <p id="form-note" class="small muted" style="margin-top:8px">
-          (Your message will be sent directly to my email.)
-        </p>
-        <p id="form-status" class="small" style="margin-top:8px; font-weight:600; opacity:0; transition: opacity 0.5s ease;"></p>
-      </form>
-    </div>
-    <aside class="card">
+    <section id="contact" style="background:#fff; color:#000; padding:80px 20px; text-align:center;">
+  <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:40px;">Contact Me</h2>
+
+  <!-- Contact Form -->
+  <form id="contactForm" action="https://api.silentforms.com/submit" method="POST"
+        style="max-width:500px; margin:auto; text-align:left; background:#f5f5f5; padding:30px; border-radius:15px; box-shadow:0 0 15px rgba(0,0,0,0.1);">
+
+    <!-- SilentForms Access Key -->
+    <input type="hidden" name="accessKey" value="a9842c1eb5361c9dc785fcad37968f8c283d8c432b1f3ca671c545e772eff74e">
+
+    <label for="name" style="font-weight:600;">Name</label><br>
+    <input type="text" id="name" name="name" required 
+           style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; background:white; color:#000;">
+
+    <label for="email" style="font-weight:600;">Email</label><br>
+    <input type="email" id="email" name="email" required 
+           style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; background:white; color:#000;">
+
+    <label for="message" style="font-weight:600;">Message</label><br>
+    <textarea id="message" name="message" required rows="5"
+              style="width:100%; padding:12px; border:1px solid #ccc; border-radius:6px; background:white; color:#000; margin-bottom:15px;"></textarea>
+
+    <button type="submit"
+            style="background:#004aad; color:#fff; font-weight:600; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; transition:all 0.3s;">
+      Send Message
+    </button>
+
+    <!-- Success/Error Message -->
+    <p id="formMessage" style="margin-top:15px; display:none;"></p>
+  </form>
       <h3>Get in touch</h3>
       <p class="muted">Email: <a href="mailto:asesinoxaba@gmail.com" style="color:inherit; text-decoration:underline;">asesinoxaba@gmail.com</a></p>
       <p class="muted">Phone / WhatsApp: <a href="https://wa.me/27604289044" target="_blank" style="color:inherit; text-decoration:underline;">0604289044</a></p>
@@ -217,47 +231,31 @@
   </div>
 </section>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  // Initialize EmailJS
-  (function() {
-    emailjs.init("GfK-dyDD_YhmQGmL3");
-  })();
+<!-- JS Confirmation -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(event) {
+      event.preventDefault(); 
+      const form = event.target;
+      const formMessage = document.getElementById("formMessage");
 
-  const form = document.getElementById('contact-form');
-  const statusMsg = document.getElementById('form-status');
-
-  function showMessage(message, color) {
-    statusMsg.textContent = message;
-    statusMsg.style.color = color;
-    statusMsg.style.opacity = 1;
-
-    // Fade out after 4 seconds
-    setTimeout(() => {
-      statusMsg.style.opacity = 0;
-    }, 4000);
-  }
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    const templateParams = { from_name: name, from_email: email, message: message };
-
-    emailjs.send('service_bloem#11', 'template_fwymjze', templateParams)
-      .then(function(response) {
-        showMessage("✅ Message sent successfully!", "#00F0FF"); // cyan highlight
-        form.reset();
-      }, function(error) {
-        showMessage("❌ Oops! Something went wrong. Please try again.", "#FF4C4C"); // red
-        console.error('EmailJS error:', error);
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
       });
-  });
-</script>
 
+      if (response.ok) {
+        formMessage.style.display = "block";
+        formMessage.style.color = "green";
+        formMessage.textContent = "✅ Message Sent Successfully!";
+        form.reset();
+      } else {
+        formMessage.style.display = "block";
+        formMessage.style.color = "red";
+        formMessage.textContent = "❌ There was an error. Please try again later.";
+      }
+    });
+  </script>
+</section>
       
     <footer class="container">
       <div class="small muted">© <span id="year"></span> GHOSP. Crafted with creativity and intelligent tools.</div>
@@ -302,4 +300,5 @@
     }
   </script>
 </body>
+
 </html>
