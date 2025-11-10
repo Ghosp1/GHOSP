@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GHOSP — Web Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Ghosp  — professional web developer crafting intelligent, responsive websites powered by creativity and modern tools." />
+  <style>
+    :root{
+      --bg:#E5E5E5;
+      --card:#FFFFFF;
+      --text:#000000;
+      --muted:#6B7280;
+      --accent:#004AAD;
+      --highlight:#00F0FF;
+      --black:#000000;
+      --blue:#004AAD;
+      --radius:12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    header{backdrop-filter:saturate(120%) blur(4px);position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.6));border-bottom:1px solid rgba(0,0,0,0.04)}
+    .container{max-width:1100px;margin:0 auto;padding:32px}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:#fff;font-weight:700;opacity:0;transform:translateY(-10px);animation:fadeUp 0.8s forwards 0.2s}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:var(--muted);font-size:14px;position:relative}
+    .cta{padding:10px 14px;border-radius:10px;background:var(--accent);color:white;font-weight:600;opacity:0;transform:translateY(-10px);animation:fadeUp 0.8s forwards 0.4s}
+    .cta:hover{background:var(--highlight)}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:center;padding:80px 0}
+    .intro h1{font-size:36px;margin:0 0 10px;line-height:1.05;opacity:0;animation:fadeInText 2s forwards}
+    .intro p{margin:0 0 18px;color:var(--muted);max-width:60ch;opacity:0;animation:fadeIn 1s forwards 0.8s}
+    .buttons{display:flex;gap:12px;opacity:0;animation:fadeUp 0.8s forwards 1.2s}
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;background:var(--accent);color:white;font-weight:600;transition:all .2s ease}
+    .btn:hover{background:var(--highlight);transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.06)}
+
+    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.06);opacity:0;transform:translateY(20px)}
+    .profile{display:flex;flex-direction:column;align-items:center;gap:14px}
+    .avatar{width:120px;height:120px;border-radius:50%;display:grid;place-items:center}
+    .small{font-size:13px;color:var(--muted)}
+
+    section{padding:56px 0;border-top:1px solid rgba(0,0,0,0.02);transition:background 0.8s ease,color 0.8s ease}
+    h2{margin:0 0 16px;font-size:20px;opacity:0;transform:translateY(10px)}
+
+    .dark-block{background:var(--black);color:white;padding:18px;border-radius:var(--radius);margin-bottom:24px;max-width:700px;margin:auto;transition:background 0.8s ease,color 0.8s ease}
+    .dark-block p{margin:0;line-height:1.5;font-size:14px}
+
+    .decor-image{width:100%;max-width:700px;border-radius:12px;margin:20px auto;display:block;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+
+    #projects-wrap{background:var(--blue);padding:42px 0;border-radius:10px;transition:background 0.8s ease}
+    #projects{max-width:1100px;margin:0 auto;padding:0 32px;color:white}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{padding:18px;border-radius:var(--radius);background:linear-gradient(135deg, var(--accent), var(--highlight));border:1px solid rgba(255,255,255,0.2);color:white;display:flex;flex-direction:column;gap:12px}
+    .project h3{margin:0 0 8px;font-size:16px}
+    .project p{margin:0;color:rgba(255,255,255,0.95);font-size:14px}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:24px}
+    input,textarea{padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.07);font-family:inherit}
+    button[type=submit]{padding:12px;border-radius:10px;border:none;background:var(--accent);color:white;font-weight:700;transition:background .2s ease}
+    button[type=submit]:hover{background:var(--highlight)}
+
+    footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center;opacity:0;animation:fadeIn 1.2s forwards 1.5s}
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      #projects{padding:0 20px}
+    }
+    @media (max-width:560px){
+      .projects-grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      .container{padding:20px}
+      .intro h1{font-size:28px}
+      #projects{padding:0 16px}
+    }
+
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{to{opacity:1}}
+    @keyframes fadeInText{0%{opacity:0;}100%{opacity:1;}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">G</div>
+        <div>
+          <div style="font-weight:700">GHOSP</div>
+          <div class="small">Web Development</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#contact">Hire me</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div class="intro">
+        <h1 id="typing"></h1>
+        <p>I blend creative design with smart automation using AI-assisted workflows to speed up development while keeping full creative control.</p>
+        <div class="buttons">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <aside class="card profile">
+        <div class="avatar" style="background:none;padding:0;">
+          <img src="https://i.ibb.co/VcX6vc27/Whats-App-Image-2025-11-01-at-14-03-22-517c7da9.jpg" 
+               alt="Xaba" 
+               style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+        </div>
+        <div style="text-align:center">
+          <div style="font-weight:700">Ghosp</div>
+          <div class="small">AI-Enhanced Web Developer</div>
+        </div>
+      </aside>
+    </section>
+
+   <section id="projects" style="
+  background:#004aad url('https://i.ibb.co/RTsjJWjc/download.png') no-repeat center center; 
+  background-size: cover; 
+  color:white; 
+  padding:80px 20px; 
+  text-align:center; 
+  position:relative;
+">
+  <!-- Dark overlay to make text readable -->
+  <div style="
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(10, 10, 10, 0.6);
+    z-index:0;
+  "></div>
+
+  <!-- Content container (on top of overlay) -->
+  <div style="position:relative; z-index:1;">
+    <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:40px;">Projects</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+      <div style="background:#0a0a0a; border-radius:15px; padding:20px; width:300px; box-shadow:0 0 15px rgba(0,0,0,0.3);">
+        <h3 style="font-size:1.2rem; margin-bottom:10px;">Ghost X Store</h3>
+        <p style="font-size:0.95rem; line-height:1.6;">
+          Ghost X Store is a modern, responsive clothing store website featuring an intuitive shopping experience, clean design, and seamless navigation. Built to highlight products and enhance online shopping engagement.
+        </p>
+        <a href="https://ghosp1.github.io/Ghost-X/" target="_blank" 
+           style="display:inline-block; margin-top:12px; padding:10px 14px; background:#00F0FF; color:#000; border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.3s ease;">
+           View Project
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="about" style="padding:80px 20px; background:linear-gradient(135deg, #0a0a0a, #004aad); color:white; text-align:center; border-radius:20px; margin:60px auto; max-width:900px; box-shadow:0 0 30px rgba(0,0,0,0.3);">
+  <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:20px;">About GHOSP</h2>
+  <p style="font-size:1.1rem; line-height:1.7; max-width:750px; margin:0 auto;">
+    A web developer passionate about creating intelligent, high-performing websites 
+    that blend design with technology. My approach focuses on efficiency and innovation using modern tools and 
+    AI-assisted workflows to deliver sleek, responsive, and user-centered digital experiences.  
+  </p>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:40px;">
+    <img src="https://i.ibb.co/4k18q98/download.jpg" alt="Decorative Work" style="width:250px; height:160px; object-fit:cover; border-radius:12px; transition:transform 0.3s ease;">
+    <img src="https://i.ibb.co/KzQkxGBV/images-1.jpg" alt="Professional Design" style="width:250px; height:160px; object-fit:cover; border-radius:12px; transition:transform 0.3s ease;">
+    <img src="https://i.ibb.co/xq5NRsk0/images.jpg" alt="Creative Development" style="width:250px; height:160px; object-fit:cover; border-radius:12px; transition:transform 0.3s ease;">
+  </div>
+</section>
+
+<style>
+  #about img:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<section id="contact" class="container">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div class="card">
+      <form id="contact-form">
+        <input type="text" id="name" placeholder="Your name" required />
+        <input type="email" id="email" placeholder="Your email" required />
+        <textarea id="message" rows="5" placeholder="How can I help?" required></textarea>
+        <button type="submit">Send message</button>
+        <p id="form-note" class="small muted" style="margin-top:8px">
+          (Your message will be sent directly to my email.)
+        </p>
+        <p id="form-status" class="small" style="margin-top:8px; font-weight:600; opacity:0; transition: opacity 0.5s ease;"></p>
+      </form>
+    </div>
+    <aside class="card">
+      <h3>Get in touch</h3>
+      <p class="muted">Email: <a href="mailto:asesinoxaba@gmail.com" style="color:inherit; text-decoration:underline;">asesinoxaba@gmail.com</a></p>
+      <p class="muted">Phone / WhatsApp: <a href="https://wa.me/27604289044" target="_blank" style="color:inherit; text-decoration:underline;">0604289044</a></p>
+      <p class="muted">Facebook: <a href="https://www.facebook.com/Bukho.Ndukwana" target="_blank" style="color:inherit; text-decoration:underline;">Bukho Ndukwana</a></p>
+      <div style="margin-top:12px">
+        <a class="small" href="#">GitHub</a> • <a class="small" href="#">LinkedIn</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS
+  (function() {
+    emailjs.init("GfK-dyDD_YhmQGmL3");
+  })();
+
+  const form = document.getElementById('contact-form');
+  const statusMsg = document.getElementById('form-status');
+
+  function showMessage(message, color) {
+    statusMsg.textContent = message;
+    statusMsg.style.color = color;
+    statusMsg.style.opacity = 1;
+
+    // Fade out after 4 seconds
+    setTimeout(() => {
+      statusMsg.style.opacity = 0;
+    }, 4000);
+  }
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    const templateParams = { from_name: name, from_email: email, message: message };
+
+    emailjs.send('service_bloem#11', 'template_fwymjze', templateParams)
+      .then(function(response) {
+        showMessage("✅ Message sent successfully!", "#00F0FF"); // cyan highlight
+        form.reset();
+      }, function(error) {
+        showMessage("❌ Oops! Something went wrong. Please try again.", "#FF4C4C"); // red
+        console.error('EmailJS error:', error);
+      });
+  });
+</script>
+
+      
+    <footer class="container">
+      <div class="small muted">© <span id="year"></span> GHOSP. Crafted with creativity and intelligent tools.</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const text = "Hi — I’m Xaba. I build intelligent, modern web experiences.";
+    const typingEl = document.getElementById('typing');
+    let index = 0;
+    function type(){
+      if(index < text.length){
+        typingEl.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 40);
+      }
+    }
+    window.addEventListener('load', type);
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.transition = 'all 0.8s ease';
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.2});
+    document.querySelectorAll('section h2, .card').forEach(el => observer.observe(el));
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Portfolio contact from ' + name);
+      const body = encodeURIComponent(message + '\n\n' + 'Reply to: ' + email);
+      window.location = `mailto:you@example.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
