@@ -194,11 +194,8 @@
   <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:40px;">Contact Me</h2>
 
   <!-- Contact Form -->
-  <form id="contactForm" action="https://api.silentforms.com/submit" method="POST"
+  <form id="contactForm" action="https://formspree.io/f/movyqqlo" method="POST"
         style="max-width:500px; margin:auto; text-align:left; background:#f5f5f5; padding:30px; border-radius:15px; box-shadow:0 0 15px rgba(0,0,0,0.1);">
-
-    <!-- SilentForms Access Key -->
-    <input type="hidden" name="accessKey" value="a9842c1eb5361c9dc785fcad37968f8c283d8c432b1f3ca671c545e772eff74e">
 
     <label for="name" style="font-weight:600;">Name</label><br>
     <input type="text" id="name" name="name" required 
@@ -248,22 +245,31 @@
 
   <!-- JS Confirmation -->
   <script>
-    document.getElementById("contactForm").addEventListener("submit", async function(event) {
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    form.addEventListener("submit", async function(event) {
       event.preventDefault(); 
-      const form = event.target;
-      const formMessage = document.getElementById("formMessage");
+      const data = new FormData(form);
 
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-      });
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
 
-      if (response.ok) {
-        formMessage.style.display = "block";
-        formMessage.style.color = "green";
-        formMessage.textContent = "✅ Message Sent Successfully!";
-        form.reset();
-      } else {
+        if (response.ok) {
+          formMessage.style.display = "block";
+          formMessage.style.color = "green";
+          formMessage.textContent = "✅ Message Sent Successfully!";
+          form.reset();
+        } else {
+          formMessage.style.display = "block";
+          formMessage.style.color = "red";
+          formMessage.textContent = "❌ There was an error. Please try again later.";
+        }
+      } catch (error) {
         formMessage.style.display = "block";
         formMessage.style.color = "red";
         formMessage.textContent = "❌ There was an error. Please try again later.";
@@ -317,5 +323,6 @@
 </body>
 
 </html>
+
 
 
