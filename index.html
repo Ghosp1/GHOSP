@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Ghosp  — professional web developer crafting intelligent, responsive websites powered by creativity and modern tools." />
+  <meta name="description" content="Ghosp — professional web developer crafting intelligent, responsive websites powered by creativity and modern tools." />
   <style>
     :root{
-      --bg:#E5E5E5;
-      --card:#FFFFFF;
-      --text:#000000;
-      --muted:#6B7280;
+      --bg:#0a0a0a; /* Creative black background */
+      --card:#1a1a1a;
+      --text:#ffffff;
+      --muted:#b0b0b0;
       --accent:#004AAD;
       --highlight:#00F0FF;
       --black:#000000;
@@ -25,7 +25,7 @@
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
-    header{backdrop-filter:saturate(120%) blur(4px);position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.6));border-bottom:1px solid rgba(0,0,0,0.04)}
+    header{backdrop-filter:saturate(120%) blur(4px);position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.6));border-bottom:1px solid rgba(255,255,255,0.05)}
     .container{max-width:1100px;margin:0 auto;padding:32px}
     .nav{display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:12px}
@@ -42,18 +42,18 @@
     .btn{display:inline-block;padding:12px 16px;border-radius:10px;background:var(--accent);color:white;font-weight:600;transition:all .2s ease}
     .btn:hover{background:var(--highlight);transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.06)}
 
-    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.06);opacity:0;transform:translateY(20px)}
+    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.4);opacity:0;transform:translateY(20px)}
     .profile{display:flex;flex-direction:column;align-items:center;gap:14px}
     .avatar{width:120px;height:120px;border-radius:50%;display:grid;place-items:center}
     .small{font-size:13px;color:var(--muted)}
 
-    section{padding:56px 0;border-top:1px solid rgba(0,0,0,0.02);transition:background 0.8s ease,color 0.8s ease}
+    section{padding:56px 0;border-top:1px solid rgba(255,255,255,0.05);transition:background 0.8s ease,color 0.8s ease}
     h2{margin:0 0 16px;font-size:20px;opacity:0;transform:translateY(10px)}
 
     .dark-block{background:var(--black);color:white;padding:18px;border-radius:var(--radius);margin-bottom:24px;max-width:700px;margin:auto;transition:background 0.8s ease,color 0.8s ease}
     .dark-block p{margin:0;line-height:1.5;font-size:14px}
 
-    .decor-image{width:100%;max-width:700px;border-radius:12px;margin:20px auto;display:block;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+    .decor-image{width:100%;max-width:700px;border-radius:12px;margin:20px auto;display:block;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
 
     #projects-wrap{background:var(--blue);padding:42px 0;border-radius:10px;transition:background 0.8s ease}
     #projects{max-width:1100px;margin:0 auto;padding:0 32px;color:white}
@@ -134,35 +134,43 @@
     </section>
 
    <section id="projects" style="
-  background:#004aad url('https://i.ibb.co/RTsjJWjc/download.png') no-repeat center center; 
-  background-size: cover; 
+  background:#0a0a0a; 
   color:white; 
   padding:80px 20px; 
   text-align:center; 
   position:relative;
 ">
-  <!-- Dark overlay to make text readable -->
   <div style="
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: rgba(10, 10, 10, 0.6);
-    z-index:0;
-  "></div>
-
-  <!-- Content container (on top of overlay) -->
-  <div style="position:relative; z-index:1;">
+    max-width:1100px; 
+    margin:0 auto; 
+    position:relative; 
+    z-index:1;
+  ">
     <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:40px;">Projects</h2>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
-      <div style="background:#0a0a0a; border-radius:15px; padding:20px; width:300px; box-shadow:0 0 15px rgba(0,0,0,0.3);">
-        <h3 style="font-size:1.2rem; margin-bottom:10px;">Ghost X Store</h3>
-        <p style="font-size:0.95rem; line-height:1.6;">
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px;">
+      <!-- Project 1 -->
+      <div style="background:#1a1a1a; border-radius:15px; padding:20px; width:320px; box-shadow:0 0 15px rgba(0,0,0,0.5); text-align:left;">
+        <img src="https://i.ibb.co/F4zPfwCW/Chat-GPT-Image-Oct-12-2025-10-15-22-PM.png" alt="Ghost X Store" style="width:100%; border-radius:12px; object-fit:cover;">
+        <h3 style="margin-top:12px; font-size:1.2rem;">Ghost X Store</h3>
+        <p style="margin-top:8px; font-size:0.95rem; line-height:1.5;">
           Ghost X Store is a modern, responsive clothing store website featuring an intuitive shopping experience, clean design, and seamless navigation. Built to highlight products and enhance online shopping engagement.
         </p>
         <a href="https://ghosp1.github.io/Ghost-X/" target="_blank" 
-           style="display:inline-block; margin-top:12px; padding:10px 14px; background:#00F0FF; color:#000; border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.3s ease;">
+           style="display:inline-block; margin-top:10px; padding:10px 14px; background:#00F0FF; color:#000; border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.3s ease;">
+           View Project
+        </a>
+      </div>
+
+      <!-- Project 2 -->
+      <div style="background:#1a1a1a; border-radius:15px; padding:20px; width:320px; box-shadow:0 0 15px rgba(0,0,0,0.5); text-align:left;">
+        <img src="https://i.ibb.co/dZK38JG/1593302-0-wild-bean-cafe.jpg" alt="Sunny Beans Café" style="width:100%; border-radius:12px; object-fit:cover;">
+        <h3 style="margin-top:12px; font-size:1.2rem;">Sunny Beans Café</h3>
+        <p style="margin-top:8px; font-size:0.95rem; line-height:1.5;">
+          Sunny Beans Café is a creative, visually rich one-page coffee website inspired by modern café culture. It features elegant dark tones, engaging visuals, and a warm layout designed for both style and simplicity.
+        </p>
+        <a href="https://ghosp1.github.io/Sunny-Beans-Cafe/" target="_blank" 
+           style="display:inline-block; margin-top:10px; padding:10px 14px; background:#FFD93D; color:#000; border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.3s ease;">
            View Project
         </a>
       </div>
@@ -170,7 +178,7 @@
   </div>
 </section>
 
-    <section id="about" style="padding:80px 20px; background:linear-gradient(135deg, #0a0a0a, #004aad); color:white; text-align:center; border-radius:20px; margin:60px auto; max-width:900px; box-shadow:0 0 30px rgba(0,0,0,0.3);">
+<section id="about" style="padding:80px 20px; background:linear-gradient(135deg, #1a1a1a, #004aad); color:white; text-align:center; border-radius:20px; margin:60px auto; max-width:900px; box-shadow:0 0 30px rgba(0,0,0,0.5);">
   <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:20px;">About GHOSP</h2>
   <p style="font-size:1.1rem; line-height:1.7; max-width:750px; margin:0 auto;">
     A web developer passionate about creating intelligent, high-performing websites 
@@ -189,11 +197,10 @@
     transform: scale(1.05);
   }
 </style>
-    
- <section id="contact" style="background:#fff; color:#000; padding:80px 20px; text-align:center;">
+
+<section id="contact" style="background:#fff; color:#000; padding:80px 20px; text-align:center;">
   <h2 style="font-size:2.2rem; font-weight:700; margin-bottom:40px;">Contact Me</h2>
 
-  <!-- Contact Form -->
   <form id="contactForm" action="https://formspree.io/f/movyqqlo" method="POST"
         style="max-width:500px; margin:auto; text-align:left; background:#f5f5f5; padding:30px; border-radius:15px; box-shadow:0 0 15px rgba(0,0,0,0.1);">
 
@@ -206,10 +213,10 @@
            style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; background:white; color:#000;">
 
     <label for="phone" style="font-weight:600;">Phone Number</label><br>
-<input type="tel" id="phone" name="phone" 
-       placeholder="e.g. +27 60 428 9044"
-       style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; background:white; color:#000;">
-    
+    <input type="tel" id="phone" name="phone" 
+           placeholder="e.g. +27 60 428 9044"
+           style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:6px; background:white; color:#000;">
+
     <label for="message" style="font-weight:600;">Message</label><br>
     <textarea id="message" name="message" required rows="5"
               style="width:100%; padding:12px; border:1px solid #ccc; border-radius:6px; background:white; color:#000; margin-bottom:15px;"></textarea>
@@ -219,11 +226,9 @@
       Send Message
     </button>
 
-    <!-- Success/Error Message -->
     <p id="formMessage" style="margin-top:15px; display:none;"></p>
   </form>
 
-  <!-- Get in Touch Section -->
   <div style="margin-top:60px;">
     <h3 style="font-size:1.8rem; font-weight:700; margin-bottom:20px;">Get in Touch</h3>
     <ul style="list-style:none; padding:0; max-width:400px; margin:auto; text-align:left; font-size:1rem; line-height:1.8;">
@@ -247,77 +252,37 @@
       </li>
     </ul>
   </div>
-
-  <!-- JS Confirmation -->
-  <script>
-  const form = document.getElementById("contact-form");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
-    });
-
-    if (response.ok) {
-      window.location.href = "success.html"; // ✅ Redirect on success
-    } else {
-      window.location.href = "error.html"; // ❌ Redirect on failure
-    }
-  });
-</script>
 </section>
       
-    <footer class="container">
-      <div class="small muted">© <span id="year"></span> GHOSP. Crafted with creativity and intelligent tools.</div>
-    </footer>
-  </main>
+<footer class="container">
+  <div class="small muted">© <span id="year"></span> GHOSP. Crafted with creativity and intelligent tools.</div>
+</footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    const text = "Hi — I’m Xaba. I build intelligent, modern web experiences.";
-    const typingEl = document.getElementById('typing');
-    let index = 0;
-    function type(){
-      if(index < text.length){
-        typingEl.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 40);
+  const text = "Hi — I’m Xaba. I build intelligent, modern web experiences.";
+  const typingEl = document.getElementById('typing');
+  let index = 0;
+  function type(){
+    if(index < text.length){
+      typingEl.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 40);
+    }
+  }
+  window.addEventListener('load', type);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.transition = 'all 0.8s ease';
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
       }
-    }
-    window.addEventListener('load', type);
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.style.transition = 'all 0.8s ease';
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, {threshold: 0.2});
-    document.querySelectorAll('section h2, .card').forEach(el => observer.observe(el));
-
-    function handleContact(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const subject = encodeURIComponent('Portfolio contact from ' + name);
-      const body = encodeURIComponent(message + '\n\n' + 'Reply to: ' + email);
-      window.location = `mailto:you@example.com?subject=${subject}&body=${body}`;
-      return false;
-    }
-  </script>
+    });
+  }, {threshold: 0.2});
+  document.querySelectorAll('section h2, .card').forEach(el => observer.observe(el));
+</script>
 </body>
-
 </html>
-
-
-
-
-
